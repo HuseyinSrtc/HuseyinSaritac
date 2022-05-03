@@ -36,3 +36,11 @@ body {
   margin-left: 190px;
   margin-right: 150px;
 }
+
+.button-hover:hover {
+  background-color: gray !important;
+  transition: all 2s;
+}
+.button-hover a {
+  color: white;
+}

@@ -1,6 +1,5 @@
-(function() {
-
-  var $$ = function(selector, context) {
+(function () {
+  var $$ = function (selector, context) {
     var context = context || document;
     var elements = context.querySelectorAll(selector);
     return [].slice.call(elements);
@@ -19,8 +18,10 @@
     var numOfSlides = $slides.length;
     var curSlide = 1;
     var sliding = false;
-    var slidingAT = +parseFloat(getComputedStyle($slidesCont)["transition-duration"]) * 1000;
-    var slidingDelay = +parseFloat(getComputedStyle($slidesCont)["transition-delay"]) * 1000;
+    var slidingAT =
+      +parseFloat(getComputedStyle($slidesCont)["transition-duration"]) * 1000;
+    var slidingDelay =
+      +parseFloat(getComputedStyle($slidesCont)["transition-delay"]) * 1000;
 
     var autoSlidingActive = false;
     var autoSlidingTO;
@@ -32,25 +33,29 @@
     var $prevControl;
 
     function setIDs() {
-      $slides.forEach(function($slide, index) {
+      $slides.forEach(function ($slide, index) {
         $slide.classList.add("fnc-slide-" + (index + 1));
       });
 
-      $controls.forEach(function($control, index) {
+      $controls.forEach(function ($control, index) {
         $control.setAttribute("data-slide", index + 1);
         $control.classList.add("fnc-nav__control-" + (index + 1));
       });
 
-      $controlsBgs.forEach(function($bg, index) {
+      $controlsBgs.forEach(function ($bg, index) {
         $bg.classList.add("fnc-nav__bg-" + (index + 1));
       });
-    };
+    }
 
     setIDs();
 
     function afterSlidingHandler() {
-      $slider.querySelector(".m--previous-slide").classList.remove("m--active-slide", "m--previous-slide");
-      $slider.querySelector(".m--previous-nav-bg").classList.remove("m--active-nav-bg", "m--previous-nav-bg");
+      $slider
+        .querySelector(".m--previous-slide")
+        .classList.remove("m--active-slide", "m--previous-slide");
+      $slider
+        .querySelector(".m--previous-nav-bg")
+        .classList.remove("m--active-nav-bg", "m--previous-nav-bg");
 
       $activeSlide.classList.remove("m--before-sliding");
       $activeControlsBg.classList.remove("m--nav-bg-before");
@@ -65,7 +70,7 @@
       if (autoSlidingActive && !autoSlidingBlocked) {
         setAutoslidingTO();
       }
-    };
+    }
 
     function performSliding(slideID) {
       if (sliding) return;
@@ -76,13 +81,19 @@
       $prevControl = $slider.querySelector(".m--active-control");
       $prevControl.classList.remove("m--active-control");
       $prevControl.classList.add("m--prev-control");
-      $slider.querySelector(prefix + "nav__control-" + slideID).classList.add("m--active-control");
+      $slider
+        .querySelector(prefix + "nav__control-" + slideID)
+        .classList.add("m--active-control");
 
       $activeSlide = $slider.querySelector(prefix + "slide-" + slideID);
       $activeControlsBg = $slider.querySelector(prefix + "nav__bg-" + slideID);
 
-      $slider.querySelector(".m--active-slide").classList.add("m--previous-slide");
-      $slider.querySelector(".m--active-nav-bg").classList.add("m--previous-nav-bg");
+      $slider
+        .querySelector(".m--active-slide")
+        .classList.add("m--previous-slide");
+      $slider
+        .querySelector(".m--active-nav-bg")
+        .classList.add("m--previous-nav-bg");
 
       $activeSlide.classList.add("m--before-sliding");
       $activeControlsBg.classList.add("m--nav-bg-before");
@@ -93,9 +104,7 @@
       $activeControlsBg.classList.add("m--active-nav-bg");
 
       setTimeout(afterSlidingHandler, slidingAT + slidingDelay);
-    };
-
-
+    }
 
     function controlClickHandler() {
       if (sliding) return;
@@ -108,9 +117,9 @@
       var slideID = +this.getAttribute("data-slide");
 
       performSliding(slideID);
-    };
+    }
 
-    $controls.forEach(function($control) {
+    $controls.forEach(function ($control) {
       $control.addEventListener("click", controlClickHandler);
     });
 
@@ -120,57 +129,66 @@
       curSlide++;
       if (curSlide > numOfSlides) curSlide = 1;
 
-      autoSlidingTO = setTimeout(function() {
+      autoSlidingTO = setTimeout(function () {
         performSliding(curSlide);
       }, delay);
-    };
+    }
 
     if (options.autoSliding || +options.autoSlidingDelay > 0) {
       if (options.autoSliding === false) return;
-      
+
       autoSlidingActive = true;
       setAutoslidingTO();
-      
+
       $slider.classList.add("m--with-autosliding");
       var triggerLayout = $slider.offsetTop;
-      
+
       var delay = +options.autoSlidingDelay || autoSlidingDelay;
       delay += slidingDelay + slidingAT;
-      
-      $progressAS.forEach(function($progress) {
-        $progress.style.transition = "transform " + (delay / 1000) + "s";
+
+      $progressAS.forEach(function ($progress) {
+        $progress.style.transition = "transform " + delay / 1000 + "s";
       });
     }
-    
-    $slider.querySelector(".fnc-nav__control:first-child").classList.add("m--active-control");
 
-  };
+    $slider
+      .querySelector(".fnc-nav__control:first-child")
+      .classList.add("m--active-control");
+  }
 
-  var fncSlider = function(sliderSelector, options) {
+  var fncSlider = function (sliderSelector, options) {
     var $sliders = $$(sliderSelector);
 
-    $sliders.forEach(function($slider) {
+    $sliders.forEach(function ($slider) {
       _fncSliderInit($slider, options);
     });
   };
 
   window.fncSlider = fncSlider;
-}());
+})();
 
-fncSlider(".example-slider", {autoSlidingDelay: 4000});
+fncSlider(".example-slider", { autoSlidingDelay: 4000 });
 
 var $demoCont = document.querySelector(".demo-cont");
 
-[].slice.call(document.querySelectorAll(".fnc-slide__action-btn")).forEach(function($btn) {
-  $btn.addEventListener("click", function() {
-    $demoCont.classList.toggle("credits-active");
+[].slice
+  .call(document.querySelectorAll(".fnc-slide__action-btn"))
+  .forEach(function ($btn) {
+    $btn.addEventListener("click", function () {
+      $demoCont.classList.toggle("credits-active");
+    });
   });
-});
 
-document.querySelector(".demo-cont__credits-close").addEventListener("click", function() {
-  $demoCont.classList.remove("credits-active");
-});
+document
+  .querySelector(".demo-cont__credits-close")
+  .addEventListener("click", function () {
+    $demoCont.classList.remove("credits-active");
+  });
 
-document.querySelector(".js-activate-global-blending").addEventListener("click", function() {
-  document.querySelector(".example-slider").classList.toggle("m--global-blending-active");
-});
+document
+  .querySelector(".js-activate-global-blending")
+  .addEventListener("click", function () {
+    document
+      .querySelector(".example-slider")
+      .classList.toggle("m--global-blending-active");
+  });
