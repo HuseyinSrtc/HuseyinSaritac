@@ -52,6 +52,7 @@ ul.menu li {
     height: 100px;
     background-image: linear-gradient(90deg, #bc4e9c 0%, #f80759 100%);
     margin-bottom: 100px;
+    width:100%;
   }
 
   ul.menu li a {
@@ -100,6 +101,7 @@ ul.menu li {
     height: 100px;
     background-image: linear-gradient(90deg, #bc4e9c 0%, #f80759 100%);
     margin-bottom: 100px;
+    width:100%;
   }
 
   ul.menu li {
@@ -142,6 +144,7 @@ ul.menu li {
     height: 100px;
     background-image: linear-gradient(90deg, #bc4e9c 0%, #f80759 100%);
     margin-bottom: 100px;
+    width:100%;
   }
 
   ul.menu li {
@@ -184,6 +187,7 @@ ul.menu li {
     height: 100px;
     background-image: linear-gradient(90deg, #bc4e9c 0%, #f80759 100%);
     margin-bottom: 100px;
+    width:100%;
   }
 
   ul.menu li {
