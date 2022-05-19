@@ -45,23 +45,24 @@ ul.menu li {
   font-size: 20px;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) and ( min-width:426px) {
   .nav-bar {
     height: 100px;
     background-image: linear-gradient(90deg, #bc4e9c 0%, #f80759 100%);
     margin-bottom: 100px;
   }
 
-  ul.menu li {
-    display: inline-block;
-    margin: 30px 37.5px;
-    position: relative;
-    left: 0%;
-  }
   ul.menu li a {
     color: #fff;
     text-decoration: none;
     font-size: 30px;
+  }
+
+  ul.menu li {
+    display: inline-block;
+    margin: 30px 37px;
+    position: relative;
+    left: 0%;
   }
   .main {
     margin: 0px;
@@ -92,7 +93,7 @@ ul.menu li {
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 425px) and (min-width:376px) {
   .nav-bar {
     height: 100px;
     background-image: linear-gradient(90deg, #bc4e9c 0%, #f80759 100%);
@@ -134,7 +135,7 @@ ul.menu li {
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 375px) and (min-width:321px) {
   .nav-bar {
     height: 100px;
     background-image: linear-gradient(90deg, #bc4e9c 0%, #f80759 100%);
