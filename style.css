@@ -45,37 +45,36 @@
   display: table;
 }
 
-ul{
+ul {
   background-color: #1a1a19;
 }
-ul li{
+ul li {
   display: inline-block;
   width: 100px;
   list-style-type: none;
   padding: 10px;
   position: relative;
 }
-ul li a{
+ul li a {
   color: #fff;
   font-size: 20px;
   text-decoration: none;
   width: 100px;
 }
 
-
-ul li a:hover{
+ul li a:hover {
   color: #ce231d;
 }
-ul li ul{
+ul li ul {
   display: none;
   position: absolute;
   left: 0;
   top: 43px;
 }
-ul li:hover ul{
+ul li:hover ul {
   display: block;
   float: left;
 }
-ul li:hover{
+ul li:hover {
   background-color: #262624;
 }
